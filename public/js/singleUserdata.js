@@ -31,15 +31,16 @@ function generateHTML(data) {
    }
 
    let { ansArr } = data;
-   for (let i = 0; i < ansArr.length; i++) {
-
+   for (let i = 0; i < questions.length; i++) {
+      console.log(ansArr[i]);
+      let answer = (ansArr[i] == -1 || !ansArr[i]) ? '<code>Not Answered</code>' : questions[i].ops[ansArr[i]]
       let response = `
    <div class="card mx-auto my-3 p-3" style="width: 50%; border-radius: 20px">
       <div class="card-body" >
          <h4 class="card-title">${questions[i].question}</h4>
          <div class="card-text pt-2 px-3">
             <div class="card-text pt-2 px-3 d-flex justify-content-end">
-               ${ansArr[i] == -1 ? '<code>Not Answered</code>' : questions[i].ops[ansArr[i]]}
+               ${answer}
             </div>
          </div>
       </div>

@@ -33,9 +33,11 @@ function generateSurveyHTML(outcome) {
    }
 }
 function getOptionsFrequency(option, index, frequency, sum) {
+   let percent = (frequency === 0 && sum === 0) ? 'N/A' : `${Math.round(100 * frequency * 100 / sum) / 100}%`
+   let freq = (frequency === 0 && sum === 0) ? 'N/A' : `${frequency}/${sum}`
    return `
       <tr>
-         <td> ${option} </td> <td>${frequency}/${sum}</td> <td>${Math.round(100 * frequency * 100 / sum) / 100}%</td>
+         <td> ${option} </td> <td>${freq}</td> <td>${percent}</td>
       </tr>
    `
 }
